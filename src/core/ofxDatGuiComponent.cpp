@@ -115,6 +115,10 @@ void ofxDatGuiComponent::setComponentStyle(ofxDatGuiTheme* theme)
     for (int i=0; i<children.size(); i++) children[i]->setTheme(theme);
 }
 
+void ofxDatGuiComponent::setLabelMargin(float margin){
+    mLabel.margin = margin;
+}
+
 void ofxDatGuiComponent::setWidth(int width, float labelWidth)
 {
     mStyle.width = width;
@@ -129,6 +133,11 @@ void ofxDatGuiComponent::setWidth(int width, float labelWidth)
     mLabel.rightAlignedXpos = mLabel.width - mLabel.margin;
     for (int i=0; i<children.size(); i++) children[i]->setWidth(width, labelWidth);
     positionLabel();
+}
+
+void ofxDatGuiComponent::setHeight(int height)
+{
+        mStyle.height = height;
 }
 
 void ofxDatGuiComponent::positionLabel()

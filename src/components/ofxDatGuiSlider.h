@@ -219,6 +219,24 @@ class ofxDatGuiSlider : public ofxDatGuiComponent {
             ofPopStyle();
         }
     
+        void drawElemental()
+        {
+            if (!mVisible) return;
+            ofPushStyle();
+            ///ofxDatGuiComponent::draw();
+            // slider bkgd //
+            ofSetColor(mBackgroundFill);
+            ofDrawRectangle(x+mLabel.width, y+mStyle.padding, mSliderWidth, mStyle.height-(mStyle.padding*2));
+            // slider fill //
+            if (mScale > 0){
+                ofSetColor(mSliderFill);
+                ofDrawRectangle(x+mLabel.width, y+mStyle.padding, mSliderWidth*mScale, mStyle.height-(mStyle.padding*2));
+            }
+            // numeric input field //
+            ///mInput->draw();
+            ofPopStyle();
+        }
+    
         bool hitTest(ofPoint m)
         {
             if (!mEnabled || !mVisible){
