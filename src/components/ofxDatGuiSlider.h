@@ -234,6 +234,8 @@ class ofxDatGuiSlider : public ofxDatGuiComponent {
             }
             // numeric input field //
             ///mInput->draw();
+            
+            drawLabel();///**
             ofPopStyle();
         }
     
