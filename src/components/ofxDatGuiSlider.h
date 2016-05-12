@@ -233,9 +233,10 @@ class ofxDatGuiSlider : public ofxDatGuiComponent {
                 ofDrawRectangle(x+mLabel.width, y+mStyle.padding, mSliderWidth*mScale, mStyle.height-(mStyle.padding*2));
             }
             // numeric input field //
-            ///mInput->draw();
             
-            drawLabel();///**
+            mInput->draw();
+            
+            drawLabel();///twk
             ofPopStyle();
         }
     
