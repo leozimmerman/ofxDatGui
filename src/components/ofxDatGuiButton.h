@@ -168,10 +168,14 @@ class ofxDatGuiToggle : public ofxDatGuiButton {
             }
         }
     
-    private:
         bool mEnabled;
+
+    
+    private:
+    
         shared_ptr<ofImage> radioOn;
         shared_ptr<ofImage> radioOff;
+  
 
 };
 

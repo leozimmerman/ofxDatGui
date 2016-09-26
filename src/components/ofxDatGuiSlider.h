@@ -219,26 +219,6 @@ class ofxDatGuiSlider : public ofxDatGuiComponent {
             ofPopStyle();
         }
     
-        void drawElemental()
-        {
-            if (!mVisible) return;
-            ofPushStyle();
-            ///ofxDatGuiComponent::draw();
-            // slider bkgd //
-            ofSetColor(mBackgroundFill);
-            ofDrawRectangle(x+mLabel.width, y+mStyle.padding, mSliderWidth, mStyle.height-(mStyle.padding*2));
-            // slider fill //
-            if (mScale > 0){
-                ofSetColor(mSliderFill);
-                ofDrawRectangle(x+mLabel.width, y+mStyle.padding, mSliderWidth*mScale, mStyle.height-(mStyle.padding*2));
-            }
-            // numeric input field //
-            
-            mInput->draw();
-            
-            drawLabel();///twk
-            ofPopStyle();
-        }
     
         bool hitTest(ofPoint m)
         {
@@ -327,7 +307,7 @@ class ofxDatGuiSlider : public ofxDatGuiComponent {
             }
         }
 
-    private:
+    protected:
     
         float   mMin;
         float   mMax;
