@@ -40,7 +40,32 @@ class ofxDatGuiTimeGraph : public ofxDatGuiComponent {
                 break;
             }
         }
+    
+    void draw()
+    {
+        if (!mVisible) return;
+        ofPushStyle();
+        ofxDatGuiComponent::draw();
+        ofSetColor(mStyle.color.inputArea);
+        ofDrawRectangle(x + mPlotterRect.x, y + mPlotterRect.y, mPlotterRect.width, mPlotterRect.height);
+        glColor3ub(mColor.fills.r, mColor.fills.g, mColor.fills.b);
+        (*this.*mDrawFunc)();
+        ofPopStyle();
+    }
 
+    void setWidth(int width, float labelWidth)
+    {
+        ofxDatGuiComponent::setWidth(width, labelWidth);
+        mPlotterRect.x = mLabel.width;
+        mPlotterRect.y = mStyle.padding;
+        mPlotterRect.width = mStyle.width - mStyle.padding - mLabel.width;
+        mPlotterRect.height = mStyle.height - (mStyle.padding*2);
+    }
+    
+    void setPosition(int x, int y)
+    {
+        ofxDatGuiComponent::setPosition(x, y);
+    }
     protected:
     
         ofxDatGuiTimeGraph(string label) : ofxDatGuiComponent(label)
@@ -59,27 +84,6 @@ class ofxDatGuiTimeGraph : public ofxDatGuiComponent {
             mPointSize = theme->layout.graph.pointSize;
             mLineWeight = theme->layout.graph.lineWeight;
             setWidth(theme->layout.width, theme->layout.labelWidth);
-        }
-    
-        void setWidth(int width, float labelWidth)
-        {
-            ofxDatGuiComponent::setWidth(width, labelWidth);
-            mPlotterRect.x = mLabel.width;
-            mPlotterRect.y = mStyle.padding;
-            mPlotterRect.width = mStyle.width - mStyle.padding - mLabel.width;
-            mPlotterRect.height = mStyle.height - (mStyle.padding*2);
-        }
-    
-        void draw()
-        {
-            if (!mVisible) return;
-            ofPushStyle();
-                ofxDatGuiComponent::draw();
-                ofSetColor(mStyle.color.inputArea);
-                ofDrawRectangle(x + mPlotterRect.x, y + mPlotterRect.y, mPlotterRect.width, mPlotterRect.height);
-                glColor3ub(mColor.fills.r, mColor.fills.g, mColor.fills.b);
-                (*this.*mDrawFunc)();
-            ofPopStyle();
         }
     
         void drawFilled()
@@ -128,10 +132,7 @@ class ofxDatGuiTimeGraph : public ofxDatGuiComponent {
             glEnd();
         }
     
-        void setPosition(int x, int y)
-        {
-            ofxDatGuiComponent::setPosition(x, y);
-        }
+   
 
         int mPointSize;
         int mLineWeight;
