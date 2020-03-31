@@ -216,7 +216,7 @@ class ofxDatGuiTheme{
         struct {
             int size = 6;
             //string file = AssetPath + "ofxbraitsch/fonts/Verdana.ttf";
-            string file = "gui_assets/fonts/verdana.ttf"; //loads the font from bin/data/
+            string file = "gui_assets/ofxbraitsch/fonts/verdana.ttf"; //loads the font from bin/data/
             shared_ptr<ofxSmartFont> ptr;
         } font;
     
@@ -226,11 +226,11 @@ class ofxDatGuiTheme{
             shared_ptr<ofImage> radioOff = make_shared<ofImage>();
             shared_ptr<ofImage> groupOpen = make_shared<ofImage>();
             shared_ptr<ofImage> groupClosed = make_shared<ofImage>();
-            string rainbowPath = AssetPath + "ofxbraitsch/ofxdatgui/picker-rainbow.png";
-            string radioOnPath = AssetPath + "ofxbraitsch/ofxdatgui/icon-radio-on.png";
-            string radioOffPath = AssetPath + "ofxbraitsch/ofxdatgui/icon-radio-off.png";
-            string groupOpenPath = AssetPath + "ofxbraitsch/ofxdatgui/icon-group-open.png";
-            string groupClosedPath = AssetPath + "ofxbraitsch/ofxdatgui/icon-group-closed.png";
+            string rainbowPath = "gui_assets/ofxbraitsch/ofxdatgui/picker-rainbow.png";//AssetPath + "ofxbraitsch/ofxdatgui/picker-rainbow.png";
+            string radioOnPath = "gui_assets/ofxbraitsch/ofxdatgui/icon-radio-on.png";//AssetPath + "ofxbraitsch/ofxdatgui/icon-radio-on.png";
+            string radioOffPath = "gui_assets/ofxbraitsch/ofxdatgui/icon-radio-off.png";//AssetPath + "ofxbraitsch/ofxdatgui/icon-radio-off.png";
+            string groupOpenPath = "gui_assets/ofxbraitsch/ofxdatgui/icon-group-open.png";//AssetPath + "ofxbraitsch/ofxdatgui/icon-group-open.png";
+            string groupClosedPath = "gui_assets/ofxbraitsch/ofxdatgui/icon-group-closed.png";//AssetPath + "ofxbraitsch/ofxdatgui/icon-group-closed.png";
         } icon;
 
         static ofColor hex(int n)
